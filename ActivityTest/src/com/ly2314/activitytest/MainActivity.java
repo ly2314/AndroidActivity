@@ -42,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, intent);
 		Log.d("debug", "requestCode=" + requestCode + ", resultCode=" + resultCode);
+		Log.d("debug", "intent (whichButton) = " + intent.getStringExtra("whichButton"));
 	}
 
 	@Override

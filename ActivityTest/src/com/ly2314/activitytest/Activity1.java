@@ -1,21 +1,42 @@
 package com.ly2314.activitytest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class Activity1 extends Activity
 {
-	private static final int RESULT_CODE_DONE = 5566;
+	private static final int RESULT_CODE_DONE1 = 5566;
+	private static final int RESULT_CODE_DONE2 = 2314;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity1);
 		String message = getIntent().getStringExtra("message");
 		Log.d("debug", "onCreate, message=" + message);
-		setResult(RESULT_CODE_DONE);
+	}
+	
+	public void finish(View view)
+	{
+		Intent intent = new Intent();
+		
+		switch (view.getId())
+		{
+		case R.id.button1:
+			intent.putExtra("whichButton", "button1");
+			setResult(RESULT_CODE_DONE1, intent);
+			break;
+		case R.id.button2:
+			intent.putExtra("whichButton", "button2");
+			setResult(RESULT_CODE_DONE2, intent);
+			break;
+		}
+		finish();
 	}
 	
 	@Override
