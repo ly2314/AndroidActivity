@@ -3,6 +3,7 @@ package com.ly2314.activitytest;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.ly2314.activitytest.PlaceholderFragment;
 import com.ly2314.activitytest.PlaceholderFragment;
 
 public class MainActivity extends ActionBarActivity {
@@ -29,6 +31,21 @@ public class MainActivity extends ActionBarActivity {
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
+	}
+	
+	public void replaceFragment(View view)
+	{
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		
+		switch(view.getId())
+		{
+		case R.id.placeholderFragmentButton:
+			ft.replace(R.id.container, new MyFragment1());
+			break;
+		case R.id.fragment1Button:
+			ft.replace(R.id.container, new PlaceholderFragment());
+			break;
 		}
 	}
 	
