@@ -3,7 +3,9 @@ package com.ly2314.activitytest;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +15,8 @@ import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
 
+	private static final int REQUEST_CODE_ACT1 = 1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,6 +26,22 @@ public class MainActivity extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+	}
+	
+	public void goToActivity(View view)
+	{
+		Intent intent = new Intent();
+		intent.setClass(this, Activity1.class);
+		//startActivity(intent);
+		intent.putExtra("message", "hi");
+		startActivityForResult(intent, REQUEST_CODE_ACT1);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, intent);
+		Log.d("debug", "requestCode=" + requestCode + ", resultCode=" + resultCode);
 	}
 
 	@Override
