@@ -14,7 +14,7 @@ public class Activity1 extends Activity
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		String message = getIntent().getStringExtra("message");
-		Log.d("debug", "onCreate");
+		Log.d("debug", "onCreate, message=" + message);
 		setResult(RESULT_CODE_DONE);
 	}
 	
