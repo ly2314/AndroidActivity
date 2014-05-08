@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.ly2314.activitytest.PlaceholderFragment;
+
 public class MainActivity extends ActionBarActivity {
 
 	private static final int REQUEST_CODE_ACT1 = 1;
@@ -88,7 +90,7 @@ public class MainActivity extends ActionBarActivity {
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment {
+	/*public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
 		}
@@ -100,6 +102,6 @@ public class MainActivity extends ActionBarActivity {
 					false);
 			return rootView;
 		}
-	}
+	}*/
 
 }
